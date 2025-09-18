@@ -1,0 +1,351 @@
+# Clinical Genomics Pipeline Configuration v3.1
+# Location: D:\Genome\config\pipeline_config.yaml
+# Auto-generated configuration file
+
+# =============================================================================
+# SYSTEM CONFIGURATION
+# =============================================================================
+
+system:
+  platform: "WSL Ubuntu 22.04 on Windows"
+  base_directory: "/mnt/d/Genome"
+  assembly: "GRCh38"
+  pipeline_version: "3.1"
+  conda_environment: "vep_v114"
+
+# =============================================================================
+# DIRECTORY STRUCTURE
+# =============================================================================
+
+directories:
+  base: "/mnt/d/Genome"
+  input_data: "/mnt/d/Genome/input_data/raw_vcfs"
+  processed_vcfs: "/mnt/d/Genome/processed_vcfs"
+  databases: "/mnt/d/Genome/databases"
+  scripts: "/mnt/d/Genome/scripts"
+  results: "/mnt/d/Genome/annotation_results"
+  logs: "/mnt/d/Genome/logs"
+  validation: "/mnt/d/Genome/validation"
+  archive: "/mnt/d/Genome/archive"
+  
+# =============================================================================
+# DATABASE CONFIGURATION
+# =============================================================================
+
+databases:
+  reference:
+    path: "/mnt/d/Genome/databases/reference"
+    genome_file: "Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz"
+    
+  vep_cache:
+    path: "/mnt/d/Genome/databases/vep_cache"
+    version: "114"
+    species: "homo_sapiens"
+    assembly: "GRCh38"
+    
+  clinvar:
+    path: "/mnt/d/Genome/databases/clinvar"
+    current_file: "clinvar.vcf.gz"
+    update_frequency: "monthly"
+    
+  gnomad:
+    path: "/mnt/d/Genome/databases/gnomad"
+    version: "v4.1"
+    type: "exomes"
+    
+  cadd:
+    path: "/mnt/d/Genome/databases/cadd"
+    version: "v1.6-v1.7"
+    snv_file: "whole_genome_SNVs.tsv.gz"
+    indel_file: "gnomad.genomes.r4.0.indel.tsv.gz"
+    
+  dbnsfp:
+    path: "/mnt/d/Genome/databases/dbnsfp"
+    version: "v4.9a"  # Recommend upgrading to v5.1a
+    
+  spliceai:
+    path: "/mnt/d/Genome/databases/spliceai"
+    real_time_prediction: true
+
+# =============================================================================
+# VEP CONFIGURATION
+# =============================================================================
+
+vep:
+  version: "114.2"
+  config_file: "/mnt/d/Genome/vep_setup/config/vep_config.txt"
+  plugins_dir: "/mnt/d/Genome/vep_setup/plugins"
+  
+  performance:
+    default_forks: 8
+    default_buffer_size: 50000
+    memory_recommendation: "64-128GB"
+    
+  plugins:
+    dbnsfp:
+      enabled: true
+      optional: true  # Continue if fails
+    spliceai:
+      enabled: true
+      real_time: true
+      cutoff: 0.2
+    cadd:
+      enabled: true
+      optional: true
+    alphamissense:
+      enabled: true
+      version: "v114+"
+
+# =============================================================================
+# ANALYSIS CONFIGURATION
+# =============================================================================
+
+analysis:
+  quality_control:
+    enabled: true
+    normalization: true
+    validation_checks: true
+    contamination_screening: true
+    
+  frequency_thresholds:
+    dominant_pathogenic: 0.001      # 0.1%
+    recessive_carrier: 0.01         # 1%
+    x_linked_hemizygous: 0.001      # 0.1%
+    acmg_ba1_benign: 0.05          # 5%
+    acmg_bs1_benign: 0.01          # 1%
+    
+  consequences:
+    high_impact:
+      - "stop_gained"
+      - "frameshift_variant"
+      - "splice_donor_variant"
+      - "splice_acceptor_variant"
+      - "start_lost"
+      - "stop_lost"
+    moderate_impact:
+      - "missense_variant"
+      - "splice_region_variant"
+      - "inframe_deletion"
+      - "inframe_insertion"
+      - "protein_altering_variant"
+
+# =============================================================================
+# GENE PANELS CONFIGURATION
+# =============================================================================
+
+gene_panels:
+  cdls:
+    name: "Cornelia de Lange Syndrome"
+    genes: ["NIPBL", "SMC1A", "SMC3", "RAD21", "HDAC8", "BRD4", "ANKRD11"]
+    inheritance_patterns: ["AD", "XL"]
+    
+  cardiac:
+    name: "Cardiac Genetics & ACMG SF v3.3"
+    acmg_sf_genes: 31  # Cardiac genes in ACMG SF v3.3
+    additional_genes: 10
+    categories:
+      - "cardiomyopathy"
+      - "arrhythmia" 
+      - "aortopathy"
+      - "arrhythmogenic_cardiomyopathy"
+      
+  multi_specialty:
+    total_specialties: 13
+    total_genes: 577
+    specialties:
+      - "CDLS"
+      - "CARDIAC"
+      - "ONCOLOGY"
+      - "NEUROLOGY"
+      - "METABOLIC"
+      - "OPHTHALMOLOGY"
+      - "HEMATOLOGY"
+      - "IMMUNOLOGY"
+      - "NEPHROLOGY"
+      - "PULMONOLOGY"
+      - "CONNECTIVE_TISSUE"
+      - "DERMATOLOGY"
+
+# =============================================================================
+# ACMG/AMP CLASSIFICATION
+# =============================================================================
+
+acmg_amp:
+  guidelines_version: "2015"
+  implementation_year: "2025"
+  
+  evidence_weights:
+    pathogenic:
+      PVS1: 8   # Very Strong
+      PS1-4: 4  # Strong
+      PM1-6: 2  # Moderate
+      PP1-5: 1  # Supporting
+    benign:
+      BA1: -8   # Stand-alone
+      BS1-4: -4 # Strong
+      BP1-7: -1 # Supporting
+      
+  haploinsufficient_genes:
+    # Curated list for PVS1 application
+    total_genes: 45
+    categories:
+      - "tumor_suppressors"
+      - "cardiac_genes"
+      - "neurodevelopmental_genes"
+      - "cdls_genes"
+
+# =============================================================================
+# CLINICAL REPORTING
+# =============================================================================
+
+reporting:
+  format: ["HTML", "CSV", "JSON"]
+  
+  clinical_sections:
+    - "executive_summary"
+    - "high_priority_findings"
+    - "gene_specific_recommendations"
+    - "phenotype_guidance"
+    - "clinical_actions"
+    - "methodology"
+    - "disclaimers"
+    
+  disclaimers:
+    research_grade: true
+    clinical_validation_required: true
+    not_for_medical_decisions: true
+    
+  actionability_scoring:
+    max_score: 50
+    high_priority_threshold: 25
+    moderate_priority_threshold: 15
+
+# =============================================================================
+# PERFORMANCE AND RESOURCE REQUIREMENTS
+# =============================================================================
+
+resources:
+  storage:
+    minimum_required: "1.1TB"
+    databases: "600GB"
+    processing_space: "500GB"
+    
+  memory:
+    recommended: "64-128GB"
+    minimum: "32GB"
+    per_sample_usage: "8-16GB"
+    
+  processing:
+    default_threads: 8
+    max_threads: 16
+    typical_runtime:
+      whole_genome: "4-8 hours"
+      whole_exome: "1-2 hours"
+      
+  expected_output:
+    whole_genome_variants: "4-6 million"
+    clinically_significant: "500-1000"
+    high_priority: "50-200"
+
+# =============================================================================
+# MAINTENANCE SCHEDULE
+# =============================================================================
+
+maintenance:
+  database_updates:
+    clinvar: "monthly"  # First Tuesday
+    vep_cache: "quarterly"
+    gnomad: "stable"  # Occasional patches
+    cadd: "major releases every 2-3 years"
+    dbnsfp: "2-3 times per year"
+    
+  quality_control:
+    positive_controls: "monthly testing"
+    negative_controls: "monthly testing"
+    concordance_testing: "quarterly"
+    literature_review: "quarterly"
+    
+  system_maintenance:
+    log_cleanup: "monthly"
+    archive_cleanup: "every 6 months"
+    disk_space_monitoring: "weekly"
+
+# =============================================================================
+# INTEGRATION SETTINGS
+# =============================================================================
+
+integration:
+  supported_inputs:
+    - "DRAGEN VCF"
+    - "GATK VCF" 
+    - "Standard VCF 4.2+"
+    
+  trio_analysis:
+    supported: true
+    inheritance_analysis: "planned"
+    de_novo_detection: "planned"
+    
+  batch_processing:
+    supported: true
+    parallel_samples: 4
+    queue_management: "simple"
+
+# =============================================================================
+# COMPLIANCE AND VALIDATION
+# =============================================================================
+
+compliance:
+  regulatory_standards:
+    - "CLIA (when applicable)"
+    - "CAP (when applicable)"
+    - "ACMG/AMP guidelines"
+    
+  validation_requirements:
+    positive_controls: true
+    negative_controls: true
+    sensitivity_analysis: true
+    specificity_analysis: true
+    concordance_testing: true
+    
+  audit_trail:
+    enabled: true
+    log_retention: "2 years"
+    version_tracking: true
+
+# =============================================================================
+# VERSION HISTORY
+# =============================================================================
+
+version_history:
+  v3.1:
+    date: "2025"
+    changes:
+      - "Updated to VEP v114.2"
+      - "ACMG SF v3.3 integration"
+      - "Multi-specialty analysis (13 specialties)"
+      - "Enhanced DRAGEN VCF support"
+      - "Automated ACMG/AMP classification"
+    status: "current"
+    
+  v3.0:
+    date: "2024"
+    changes:
+      - "Initial comprehensive pipeline"
+      - "CdLS and cardiac analysis"
+      - "Clinical report generation"
+    status: "deprecated"
+
+# =============================================================================
+# CONTACT AND SUPPORT
+# =============================================================================
+
+support:
+  documentation: "/mnt/d/Genome/README.md"
+  pipeline_status: "/mnt/d/Genome/PIPELINE_COMPLETE.md"
+  log_directory: "/mnt/d/Genome/logs"
+  issue_tracking: "Manual review of logs"
+  
+maintainer:
+  system: "Clinical Genomics Pipeline"
+  version: "v3.1"
+  last_updated: "2025"

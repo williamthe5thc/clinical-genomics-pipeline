@@ -1,0 +1,134 @@
+# VEP Configuration File v114.2
+# Clinical Genomics Pipeline Configuration
+# Location: D:\Genome\vep_setup\config\vep_config.txt
+# Updated: 2025 for VEP v114.2
+
+# =============================================================================
+# BASIC VEP SETTINGS
+# =============================================================================
+
+# Assembly and species
+assembly = GRCh38
+species = homo_sapiens
+
+# Cache settings (offline mode for clinical use)
+offline = 1
+cache = 1
+dir_cache = /mnt/d/Genome/databases/vep_cache
+
+# Reference genome
+fasta = /mnt/d/Genome/databases/reference/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
+
+# Performance settings
+fork = 8
+buffer_size = 50000
+
+# =============================================================================
+# OUTPUT SETTINGS
+# =============================================================================
+
+# Output format
+vcf = 1
+compress_output = bgzip
+force_overwrite = 1
+
+# Statistics and warnings
+stats_file = 1
+warning_file = 1
+
+# Maximum SV size (10Mb for clinical analysis)
+max_sv_size = 10000000
+
+# =============================================================================
+# ANNOTATION FEATURES
+# =============================================================================
+
+# Core annotations
+everything = 1
+symbol = 1
+hgvs = 1
+hgvsg = 1
+canonical = 1
+mane_select = 1
+biotype = 1
+domains = 1
+numbers = 1
+tsl = 1
+appris = 1
+ccds = 1
+uniprot = 1
+gene_phenotype = 1
+regulatory = 1
+
+# Nearest gene for intergenic variants
+nearest = symbol
+
+# =============================================================================
+# POPULATION FREQUENCIES
+# =============================================================================
+
+# gnomAD frequencies (critical for clinical interpretation)
+af = 1
+af_gnomade = 1
+af_gnomadg = 1
+max_af = 1
+check_existing = 1
+allele_number = 1
+
+# =============================================================================
+# PATHOGENICITY PREDICTIONS
+# =============================================================================
+
+# Built-in predictions
+sift = b
+polyphen = b
+
+# Transcript selection order (clinical prioritization)
+pick_order = mane_select,mane_plus_clinical,canonical,appris,tsl,biotype,ccds,length
+
+# =============================================================================
+# PLUGIN DIRECTORY
+# =============================================================================
+
+dir_plugins = /mnt/d/Genome/vep_setup/plugins
+
+# =============================================================================
+# CUSTOM ANNOTATIONS
+# =============================================================================
+
+# ClinVar (critical for clinical interpretation)
+custom = /mnt/d/Genome/databases/clinvar/clinvar.vcf.gz,ClinVar,vcf,exact,0,CLNSIG,CLNREVSTAT,CLNDN,CLNDISDB,CLNHGVS,CLNVI
+
+# Additional custom tracks can be added here
+# Example: OMIM, HGMD, pharmacogenomic databases
+
+# =============================================================================
+# PLUGIN CONFIGURATIONS
+# =============================================================================
+
+# Note: Plugin configurations are typically specified on command line
+# due to complexity of parameters. See comprehensive_vep_v114.sh for examples:
+#
+# dbNSFP: Multiple prediction algorithms and conservation scores
+# SpliceAI: Splice site disruption prediction
+# CADD: Combined annotation dependent depletion scores
+# AlphaMissense: Protein language model predictions (VEP v114+)
+
+# =============================================================================
+# CLINICAL QUALITY SETTINGS
+# =============================================================================
+
+# Ensure comprehensive annotation for clinical use
+# - Use MANE Select transcripts when available
+# - Include all relevant frequency databases
+# - Maintain audit trail with stats and warnings
+# - Use offline mode for reproducibility
+
+# =============================================================================
+# VERSION INFORMATION
+# =============================================================================
+
+# VEP Version: 114.2 (required for clinical pipeline)
+# Cache Version: 114_GRCh38
+# Last Updated: 2025
+# Compatible with: Clinical Genomics Pipeline v3.1

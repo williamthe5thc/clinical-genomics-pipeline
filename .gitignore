@@ -1,0 +1,86 @@
+# =============================================================================
+# CLINICAL GENOMICS PIPELINE - GIT IGNORE
+# =============================================================================
+# Professional exclusions for clinical genomics pipeline
+
+# Large genomic databases (600GB+ total)
+databases/
+!databases/claude_readme.txt
+
+# Large genomic files 
+*.vcf.gz
+*.vcf.gz.tbi
+*.vcf
+*.bam
+*.cram
+*.sam
+*.bed.gz
+*.tsv.gz
+*.tsv.gz.tbi
+
+# Processing outputs and results (too large for GitHub)
+annotation_results/
+!annotation_results/README.md
+!annotation_results/samples/CS335A_FINAL_TEST2/SAMPLE_ANALYSIS_SUMMARY.md
+!annotation_results/samples/CS335A_FINAL_TEST2/clinical_analysis/CS335A_FINAL_TEST2_enhanced_acmg_results.txt
+
+processed_vcfs/
+input_data/raw_vcfs/
+!input_data/raw_vcfs/.gitkeep
+
+# Runtime logs and temporary files
+logs/
+!logs/README.md
+*.tmp
+*.temp
+*.log
+/tmp/
+
+# Development and testing artifacts  
+Archive/
+*_test*
+*_TEST*
+*debug*
+*backup*
+*_backup*
+*.backup
+*_old*
+*_OLD*
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# HTML reports (too large/not essential)
+*.html
+!docs/*.html
+
+# Statistics and quality reports
+*_stats.html
+*_warnings.txt
+*_summary.html
+*_report.html
+
+# Compressed archives
+*.zip
+*.tar.gz
+*.tar.bz2
+*.rar
+*.7z
