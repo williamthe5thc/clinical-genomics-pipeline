@@ -1,0 +1,6 @@
+url,filename,notes
+https://example.com/samples/WGS001.vcf.gz,patient_001.vcf.gz,Proband - suspected CDLS
+https://example.com/samples/WGS002.vcf.gz,patient_002_mother.vcf.gz,Mother - trio analysis
+https://example.com/samples/WGS003.vcf.gz,patient_003_father.vcf.gz,Father - trio analysis
+https://example.com/samples/WGS004.vcf.gz,control_001.vcf.gz,Unaffected control
+https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/example.vcf.gz,public_sample.vcf.gz,Public database sample

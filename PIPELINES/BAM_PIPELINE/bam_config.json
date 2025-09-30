@@ -1,0 +1,62 @@
+{
+  "comment": "BAM Processing Configuration for Enhanced Pipeline",
+  "version": "1.0",
+  "last_updated": "2025-01-22",
+  
+  "processing_settings": {
+    "max_threads": 8,
+    "memory_limit_gb": 64,
+    "enable_sv_calling": true,
+    "enable_cnv_calling": true,
+    "enable_parallel_processing": true
+  },
+  
+  "quality_thresholds": {
+    "min_mapping_quality": 20,
+    "min_coverage_20x": 95.0,
+    "min_coverage_30x": 90.0,
+    "max_contamination": 3.0,
+    "min_read_depth": 10,
+    "min_variant_depth": 3,
+    "max_strand_bias_p": 0.01,
+    "min_base_quality": 20
+  },
+  
+  "coverage_analysis": {
+    "enable_mosdepth_style": true,
+    "target_regions_bed": "/mnt/d/Genome/databases/clinical_panels/915_gene_panel.bed",
+    "gap_detection_threshold": 20,
+    "clinical_depth_coverage_enabled": true
+  },
+  
+  "structural_variants": {
+    "enable_manta": true,
+    "min_sv_size": 50,
+    "max_sv_size": 10000000,
+    "enable_clinical_filtering": true,
+    "output_vcf": true
+  },
+  
+  "copy_number_variants": {
+    "enable_cnvkit_style": true,
+    "enable_gatk_gcnv_style": true,
+    "min_cnv_size": 1000,
+    "exon_level_resolution": true,
+    "population_frequency_filter": 0.001
+  },
+  
+  "tools": {
+    "samtools": "/usr/bin/samtools",
+    "mosdepth": "/usr/local/bin/mosdepth",
+    "manta": "/usr/local/bin/configManta.py",
+    "gatk": "/usr/local/bin/gatk",
+    "cnvkit": "/usr/local/bin/cnvkit"
+  },
+  
+  "output_settings": {
+    "save_intermediate_files": false,
+    "compress_bam_outputs": true,
+    "generate_coverage_plots": true,
+    "create_quality_reports": true
+  }
+}

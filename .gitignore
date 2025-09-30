@@ -1,0 +1,329 @@
+# =============================================================================
+# CLINICAL GENOMICS PIPELINE - GITHUB-READY .GITIGNORE
+# =============================================================================
+# Professional exclusions for clinical genomics pipeline
+# Updated: September 2025
+# Purpose: Share code/documentation while excluding large data files
+
+# =============================================================================
+# CRITICAL: LARGE DATABASE FILES (ALREADY MOVED - DO NOT COMMIT)
+# =============================================================================
+# Total ~1.1TB of genomic databases - MUST remain excluded
+databases/
+!databases/README.md
+!databases/.gitkeep
+
+# Reference genomes (76GB)
+reference/
+!reference/README.md
+
+# VEP cache (20GB)
+vep_cache/
+!vep_cache/README.md
+
+# =============================================================================
+# LARGE GENOMIC DATA FILES
+# =============================================================================
+# Individual VCF, BAM files can be 5-50GB each
+
+# Raw sequencing data
+*.vcf.gz
+*.vcf.gz.tbi
+*.vcf.gz.csi
+*.bam
+*.bam.bai
+*.cram
+*.crai
+*.sam
+
+# Uncompressed VCFs (can be huge)
+*.vcf
+!test_data/*.vcf
+!examples/*.vcf
+
+# BED files
+*.bed.gz
+*.bed.gz.tbi
+
+# Large annotation files
+*.tsv.gz
+*.tsv.gz.tbi
+*.csv.gz
+
+# =============================================================================
+# PROCESSING OUTPUT DIRECTORIES (CONTAIN LARGE FILES)
+# =============================================================================
+# Keep structure but exclude actual results
+
+# Processed data directories
+DATA/INPUTS/raw_vcfs/
+!DATA/INPUTS/raw_vcfs/.gitkeep
+!DATA/INPUTS/raw_vcfs/README.md
+
+DATA/INPUTS/bam_files/
+!DATA/INPUTS/bam_files/.gitkeep
+!DATA/INPUTS/bam_files/README.md
+
+DATA/PROCESSED/vcf_processed/*.vcf
+DATA/PROCESSED/vcf_processed/*.vcf.gz
+DATA/PROCESSED/vcf_processed/*.vcf.gz.tbi
+DATA/PROCESSED/bam_processed/*.bam
+DATA/PROCESSED/bam_processed/*.bam.bai
+
+# VEP annotation results (compressed VCFs)
+DATA/RESULTS/**/vep_annotation/*.vcf.gz
+DATA/RESULTS/**/vep_annotation/*.vcf.gz.tbi
+
+# Large CSV results (individual variant files can be 50-500MB)
+DATA/RESULTS/**/*_ENHANCED_VARIANTS.csv
+DATA/RESULTS/**/*_variants.csv
+DATA/RESULTS/**/*_detailed_*.csv
+
+# Keep one example for documentation
+!DATA/RESULTS/EXAMPLES/
+
+# =============================================================================
+# HTML REPORTS - SELECTIVE INCLUSION
+# =============================================================================
+# Exclude large/temporary HTML reports but keep documentation
+
+# Large clinical reports (can be 5-50MB each with embedded data)
+DATA/RESULTS/**/*_multi_specialty_report.html
+DATA/RESULTS/**/*_ENHANCED_ANALYSIS.html
+DATA/PROCESSED/**/*_quality_report.html
+DATA/RESULTS/**/*_stats.html
+
+# Keep example reports and documentation HTML
+!DATA/RESULTS/EXAMPLES/*.html
+!DOCUMENTATION/**/*.html
+!docs/**/*.html
+
+# =============================================================================
+# LOG FILES - SELECTIVE INCLUSION
+# =============================================================================
+# Exclude runtime logs but keep important documentation logs
+
+# Large runtime logs
+DATA/LOGS/*.log
+DATA/LOGS/*_debug.txt
+DATA/LOGS/*_stderr.log
+DATA/LOGS/*_stdout.log
+
+# Keep example/documentation logs
+!DATA/LOGS/README.md
+!DATA/LOGS/EXAMPLES/
+
+# System logs
+logs/
+!logs/README.md
+!logs/EXAMPLES/
+
+# =============================================================================
+# TEMPORARY AND CACHE FILES
+# =============================================================================
+# Standard temporary file patterns
+
+*.tmp
+*.temp
+*.cache
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Pipeline temporary directories
+tmp/
+temp/
+cache/
+
+# =============================================================================
+# PYTHON ARTIFACTS
+# =============================================================================
+# Standard Python exclusions
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# =============================================================================
+# IDE AND EDITOR FILES
+# =============================================================================
+# Common IDE files to exclude
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+\#*\#
+.\#*
+
+# =============================================================================
+# TEST AND DEBUG FILES - MORE SELECTIVE
+# =============================================================================
+# Keep test code but exclude test output
+
+# Test output directories
+test_output/
+test_results/
+debug_output/
+
+# Large test data files
+*_test*.vcf.gz
+*_TEST*.vcf.gz
+*_debug*.vcf.gz
+
+# Keep test Python files (these are code, should be committed!)
+# Removed: *_test*.py pattern (was too aggressive)
+
+# =============================================================================
+# BACKUP AND ARCHIVE FILES
+# =============================================================================
+# Exclude backup copies and old versions
+
+# Backup patterns
+*.backup
+*_backup
+*_backup.*
+*.bak
+*_old
+*_OLD
+*.old
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.rar
+*.7z
+
+# Old/archived directories
+Archive/
+archive/
+OLD/
+old/
+Backup/
+backup/
+
+# =============================================================================
+# CONFIGURATION FILES WITH SENSITIVE DATA
+# =============================================================================
+# Exclude files that might contain credentials
+
+# Email configuration (may contain passwords)
+**/email_config.json
+!**/email_config_template.json
+
+# Database credentials
+*_credentials.json
+*_secrets.json
+.env
+.env.local
+
+# SSH keys
+*.pem
+*.key
+id_rsa*
+*.ppk
+
+# =============================================================================
+# STATISTICS AND QUALITY REPORTS
+# =============================================================================
+# Large statistical output files
+
+*_warnings.txt
+*_summary.html
+*_report.html
+*_statistics.json
+
+# Keep example statistics
+!DOCUMENTATION/**/EXAMPLES/
+
+# =============================================================================
+# COMPRESSION AND INDEX FILES
+# =============================================================================
+# Generated index files that can be recreated
+
+*.tbi
+*.csi
+*.bai
+*.crai
+*.fai
+
+# =============================================================================
+# SYSTEM-SPECIFIC FILES
+# =============================================================================
+# Windows, Mac, Linux system files
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# =============================================================================
+# WHAT SHOULD BE COMMITTED?
+# =============================================================================
+# This .gitignore is designed to allow:
+#
+# ✅ All Python scripts and modules
+# ✅ All shell scripts (.sh)
+# ✅ All documentation (.md files)
+# ✅ Configuration templates (non-sensitive)
+# ✅ Requirements and environment files
+# ✅ Small test data files in test_data/ or examples/
+# ✅ README files at all levels
+# ✅ Directory structure (.gitkeep files)
+#
+# ❌ Large genomic databases (databases/, reference/, vep_cache/)
+# ❌ Patient VCF/BAM files (raw_vcfs/, bam_files/)
+# ❌ Large processing results (compressed VCFs, large CSVs)
+# ❌ Runtime logs and temporary files
+# ❌ Sensitive configuration (email_config.json, credentials)
+#
+# =============================================================================

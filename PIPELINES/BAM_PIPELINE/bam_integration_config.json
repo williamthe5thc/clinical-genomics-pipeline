@@ -1,0 +1,38 @@
+{
+  "bam_integration_config": {
+    "version": "1.0",
+    "description": "BAM Integration Configuration",
+    
+    "analysis_modes": {
+      "enable_variant_calling": true,
+      "enable_sv_detection": true,
+      "enable_enhanced_qc": true
+    },
+    
+    "performance_settings": {
+      "max_threads": 8,
+      "memory_limit_gb": 128,
+      "processing_timeout_hours": 4
+    },
+    
+    "tool_paths": {
+      "dragen_install": "/opt/edico/bin",
+      "manta_config": "/usr/local/bin/configManta.py", 
+      "mosdepth_bin": "/usr/local/bin/mosdepth",
+      "gatk_bin": "/usr/local/bin/gatk",
+      "samtools_bin": "samtools",
+      "bcftools_bin": "bcftools"
+    },
+    
+    "database_paths": {
+      "reference_genome": "/mnt/d/Genome/databases/reference/Homo_sapiens.GRCh38.dna.primary_assembly.fa",
+      "clinical_genes_bed": "/mnt/d/Genome/databases/clinical_panels/915_gene_panel.bed"
+    },
+    
+    "quality_thresholds": {
+      "min_mapping_quality": 20,
+      "min_coverage_20x_percent": 95.0,
+      "min_coverage_30x_percent": 90.0
+    }
+  }
+}

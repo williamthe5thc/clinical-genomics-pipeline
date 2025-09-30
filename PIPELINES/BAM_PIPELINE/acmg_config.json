@@ -1,0 +1,69 @@
+{
+  "comment": "Enhanced ACMG/AMP Classification Configuration",
+  "version": "1.0",
+  "last_updated": "2025-01-22",
+  "acmg_version": "2015_guidelines_with_2024_2025_updates",
+  
+  "classification_settings": {
+    "enable_bam_evidence": true,
+    "enable_family_evidence": true,
+    "strict_classification": true,
+    "require_functional_evidence": false,
+    "enable_machine_learning_enhancement": false
+  },
+  
+  "frequency_thresholds": {
+    "ba1_threshold": 0.05,
+    "bs1_threshold": 0.01,
+    "pm2_threshold": 0.0001,
+    "rare_disease_threshold": 0.001,
+    "population_specific_adjustment": true
+  },
+  
+  "computational_thresholds": {
+    "revel_pathogenic": 0.75,
+    "revel_benign": 0.25,
+    "alphamissense_pathogenic": 0.564,
+    "alphamissense_benign": 0.34,
+    "cadd_pathogenic": 25.0,
+    "cadd_benign": 15.0,
+    "consensus_threshold": 3
+  },
+  
+  "bam_evidence_thresholds": {
+    "min_read_depth": 10,
+    "min_variant_depth": 3,
+    "min_mapping_quality": 20,
+    "max_strand_bias_p": 0.01,
+    "min_base_quality": 20,
+    "min_allelic_fraction": 0.1
+  },
+  
+  "family_analysis": {
+    "de_novo_high_confidence": 0.95,
+    "de_novo_moderate_confidence": 0.8,
+    "segregation_analysis_enabled": true,
+    "inheritance_pattern_analysis": true
+  },
+  
+  "clinical_databases": {
+    "clinvar_path": "/mnt/d/Genome/databases/clinvar/clinvar_current.vcf.gz",
+    "hgmd_enabled": false,
+    "lovd_enabled": false,
+    "gnomad_path": "/mnt/d/Genome/databases/gnomad"
+  },
+  
+  "gene_specific_settings": {
+    "haploinsufficient_genes_file": "/mnt/d/Genome/databases/gene_lists/haploinsufficient_genes.txt",
+    "disease_genes_file": "/mnt/d/Genome/databases/gene_lists/disease_gene_associations.json",
+    "hotspot_regions_file": "/mnt/d/Genome/databases/gene_lists/hotspot_regions.json",
+    "enable_gene_specific_thresholds": true
+  },
+  
+  "output_settings": {
+    "detailed_evidence_reporting": true,
+    "include_confidence_scores": true,
+    "generate_acmg_summary": true,
+    "export_for_clinical_review": true
+  }
+}

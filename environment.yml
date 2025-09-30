@@ -1,0 +1,53 @@
+# Clinical Genomics Pipeline - Conda Environment
+# Create environment: conda env create -f environment.yml
+# Activate: conda activate clinical_genomics_pipeline
+
+name: clinical_genomics_pipeline
+
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  # Core Python
+  - python=3.12.3
+  
+  # Bioinformatics tools (primary dependencies)
+  - ensembl-vep=115.1
+  - bcftools=1.21
+  - htslib=1.21  # Provides tabix and bgzip
+  - samtools=1.21
+  
+  # Python packages for data analysis
+  - pandas>=1.5.0
+  - numpy>=1.21.0
+  - scipy>=1.9.0
+  - matplotlib>=3.5.0
+  - seaborn>=0.11.0
+  - pysam>=0.19.0
+  - cyvcf2>=0.30.0
+  - pyyaml>=6.0
+  - requests>=2.28.0
+  - tqdm>=4.64.0
+  - jinja2>=3.1.0
+  
+  # System utilities
+  - curl
+  - wget
+  - gzip
+  - unzip
+  - parallel
+  
+  # Development and debugging
+  - ipython
+  - jupyter
+  
+  # Optional: Performance enhancements
+  - numba
+  
+  # Perl modules for VEP plugins (if needed)
+  - perl
+  - perl-bio-db-hts>=2.11
+  - perl-dbi
+  - perl-dbd-mysql

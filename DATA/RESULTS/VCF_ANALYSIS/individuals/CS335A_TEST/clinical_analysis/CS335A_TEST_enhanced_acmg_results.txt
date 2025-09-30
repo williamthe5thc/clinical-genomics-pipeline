@@ -1,0 +1,357 @@
+ENHANCED ACMG/AMP CLINICAL GENOMICS ANALYSIS
+Sample ID: CS335A_TEST
+Analysis Date: 2025-09-27 11:04:04
+================================================================================
+
+ANALYSIS SUMMARY
+----------------------------------------
+Total clinical variants identified: 9214
+Gene panels analyzed: 5
+
+ACMG/AMP CLASSIFICATION SUMMARY
+----------------------------------------
+Uncertain Significance   :  9192 variants
+Likely Pathogenic        :    22 variants
+
+PATHOGENIC/LIKELY PATHOGENIC VARIANTS
+--------------------------------------------------
+ 1. SDHB         | Likely Pathogenic  | ONCOLOGY
+    chr1:17027802:A>G
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+ 2. TNNT2        | Likely Pathogenic  | CARDIAC
+    chr1:201361301:T>C
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+ 3. RYR2         | Likely Pathogenic  | CARDIAC
+    chr1:237566759:C>T
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+ 4. RYR2         | Likely Pathogenic  | CARDIAC
+    chr1:237614782:G>A
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+ 5. RYR2         | Likely Pathogenic  | CARDIAC
+    chr1:237678090:A>G
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+ 6. COL3A1       | Likely Pathogenic  | CARDIAC
+    chr2:188999354:G>A
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+ 7. COL3A1       | Likely Pathogenic  | CARDIAC
+    chr2:189010695:T>G
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+ 8. SCN5A        | Likely Pathogenic  | CARDIAC
+    chr3:38603929:T>C
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+ 9. APC          | Likely Pathogenic  | ONCOLOGY
+    chr5:112841059:T>A
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+10. PMS2         | Likely Pathogenic  | ONCOLOGY
+    chr7:5987144:T>C
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+11. PMS2         | Likely Pathogenic  | ONCOLOGY
+    chr7:5987234:T>C
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+12. KCNH2        | Likely Pathogenic  | CARDIAC
+    chr7:150948446:T>G
+    Consequence: missense_variant&splice_region_variant
+    Evidence: 
+    Score: 80
+
+13. BRCA2        | Likely Pathogenic  | ONCOLOGY
+    chr13:32332592:A>C
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+14. BRCA2        | Likely Pathogenic  | ONCOLOGY
+    chr13:32355250:T>C
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+15. TP53         | Likely Pathogenic  | ONCOLOGY
+    chr17:7676154:G>C
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+16. BRCA1        | Likely Pathogenic  | ONCOLOGY
+    chr17:43071077:T>C
+    Consequence: missense_variant
+    Evidence: 
+    Score: 80
+
+17. NIPBL        | Likely Pathogenic  | CDLS
+    chr5:37006588:G>A
+    Consequence: missense_variant&splice_region_variant
+    Evidence: 
+    Score: 70
+
+18. ANKRD11      | Likely Pathogenic  | CDLS
+    chr16:89283630:G>A
+    Consequence: missense_variant
+    Evidence: 
+    Score: 70
+
+19. CYP2C19      | Likely Pathogenic  | PHARMACOGENOMICS
+    chr10:94842866:A>G
+    Consequence: missense_variant
+    Evidence: 
+    Score: 65
+
+20. SLCO1B1      | Likely Pathogenic  | PHARMACOGENOMICS
+    chr12:21176804:A>G
+    Consequence: missense_variant
+    Evidence: 
+    Score: 65
+
+CARDIAC PANEL (3219 variants)
+------------------------------------------------------------
+ 1. TNNT2        | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr1:201361301:T>C
+
+ 2. RYR2         | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr1:237566759:C>T
+
+ 3. RYR2         | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr1:237614782:G>A
+
+ 4. RYR2         | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr1:237678090:A>G
+
+ 5. COL3A1       | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr2:188999354:G>A
+
+ 6. COL3A1       | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr2:189010695:T>G
+
+ 7. SCN5A        | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr3:38603929:T>C
+
+ 8. KCNH2        | Likely Pathogenic  | Score:  80
+     missense_variant&splice_region_variant
+     chr7:150948446:T>G
+
+ 9. LMNA         | Uncertain Significance | Score:  55
+     splice_region_variant&synonymous_variant
+     chr1:156137743:C>T
+
+10. TNNT2        | Uncertain Significance | Score:  55
+     splice_region_variant&splice_polypyrimidine_tract_variant&intron_variant
+     chr1:201372047:CAGAAG>C
+
+     ... and 3209 additional variants
+
+CDLS PANEL (708 variants)
+------------------------------------------------------------
+ 1. NIPBL        | Likely Pathogenic  | Score:  70
+     missense_variant&splice_region_variant
+     chr5:37006588:G>A
+
+ 2. ANKRD11      | Likely Pathogenic  | Score:  70
+     missense_variant
+     chr16:89283630:G>A
+
+ 3. NIPBL        | Uncertain Significance | Score:  35
+     upstream_gene_variant
+     chr5:36876180:T>TC
+
+ 4. NIPBL        | Uncertain Significance | Score:  35
+     intron_variant
+     chr5:36878678:A>G
+
+ 5. NIPBL        | Uncertain Significance | Score:  35
+     intron_variant
+     chr5:36880138:C>CA
+
+ 6. NIPBL        | Uncertain Significance | Score:  35
+     intron_variant
+     chr5:36880483:A>G
+
+ 7. NIPBL        | Uncertain Significance | Score:  35
+     intron_variant
+     chr5:36880769:C>T
+
+ 8. NIPBL        | Uncertain Significance | Score:  35
+     intron_variant
+     chr5:36881296:A>ATTT
+
+ 9. NIPBL        | Uncertain Significance | Score:  35
+     intron_variant
+     chr5:36882876:C>CT
+
+10. NIPBL        | Uncertain Significance | Score:  35
+     intron_variant
+     chr5:36882917:G>A
+
+     ... and 698 additional variants
+
+NEUROLOGY PANEL (1703 variants)
+------------------------------------------------------------
+ 1. SCN1A        | Uncertain Significance | Score:  55
+     missense_variant
+     chr2:166036278:C>T
+
+ 2. KCNQ2        | Uncertain Significance | Score:  55
+     missense_variant
+     chr20:63406924:T>G
+
+ 3. SCN2A        | Uncertain Significance | Score:  50
+     splice_region_variant&splice_polypyrimidine_tract_variant&intron_variant
+     chr2:165313617:T>C
+
+ 4. SCN2A        | Uncertain Significance | Score:  40
+     intron_variant&non_coding_transcript_variant
+     chr2:165214803:G>A
+
+ 5. SCN2A        | Uncertain Significance | Score:  40
+     intron_variant&non_coding_transcript_variant
+     chr2:165216981:G>A
+
+ 6. SCN2A        | Uncertain Significance | Score:  40
+     intron_variant&non_coding_transcript_variant
+     chr2:165227988:G>GTT
+
+ 7. SCN2A        | Uncertain Significance | Score:  40
+     intron_variant&non_coding_transcript_variant
+     chr2:165228001:T>TTC
+
+ 8. SCN2A        | Uncertain Significance | Score:  40
+     intron_variant&non_coding_transcript_variant
+     chr2:165231326:AAGAT>A
+
+ 9. SCN2A        | Uncertain Significance | Score:  40
+     intron_variant&non_coding_transcript_variant
+     chr2:165231374:TAGATGATG>T
+
+10. SCN2A        | Uncertain Significance | Score:  40
+     intron_variant&non_coding_transcript_variant
+     chr2:165231429:C>T
+
+     ... and 1693 additional variants
+
+ONCOLOGY PANEL (2114 variants)
+------------------------------------------------------------
+ 1. SDHB         | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr1:17027802:A>G
+
+ 2. APC          | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr5:112841059:T>A
+
+ 3. PMS2         | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr7:5987144:T>C
+
+ 4. PMS2         | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr7:5987234:T>C
+
+ 5. BRCA2        | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr13:32332592:A>C
+
+ 6. BRCA2        | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr13:32355250:T>C
+
+ 7. TP53         | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr17:7676154:G>C
+
+ 8. BRCA1        | Likely Pathogenic  | Score:  80
+     missense_variant
+     chr17:43071077:T>C
+
+ 9. MSH2         | Uncertain Significance | Score:  55
+     splice_region_variant&splice_polypyrimidine_tract_variant&intron_variant&NMD_transcript_variant
+     chr2:47607384:T>G
+
+10. SDHB         | Uncertain Significance | Score:  45
+     downstream_gene_variant
+     chr1:17017006:C>CA
+
+     ... and 2104 additional variants
+
+PHARMACOGENOMICS PANEL (1470 variants)
+------------------------------------------------------------
+ 1. CYP2C19      | Likely Pathogenic  | Score:  65
+     missense_variant
+     chr10:94842866:A>G
+
+ 2. SLCO1B1      | Likely Pathogenic  | Score:  65
+     missense_variant
+     chr12:21176804:A>G
+
+ 3. SLCO1B1      | Likely Pathogenic  | Score:  65
+     missense_variant
+     chr12:21197153:C>G
+
+ 4. SLCO1B1      | Likely Pathogenic  | Score:  65
+     missense_variant
+     chr12:21239042:A>C
+
+ 5. CYP2D6       | Uncertain Significance | Score:  55
+     frameshift_variant
+     chr22:42128241:CT>C
+
+ 6. CYP2D6       | Uncertain Significance | Score:  40
+     inframe_deletion&splice_region_variant
+     chr22:42128173:CCTT>C
+
+ 7. DPYD         | Uncertain Significance | Score:  30
+     downstream_gene_variant
+     chr1:97074617:G>A
+
+ 8. DPYD         | Uncertain Significance | Score:  30
+     downstream_gene_variant
+     chr1:97074624:C>G
+
+ 9. DPYD         | Uncertain Significance | Score:  30
+     downstream_gene_variant
+     chr1:97074747:G>A
+
+10. DPYD         | Uncertain Significance | Score:  30
+     downstream_gene_variant
+     chr1:97074815:T>G
+
+     ... and 1460 additional variants
+

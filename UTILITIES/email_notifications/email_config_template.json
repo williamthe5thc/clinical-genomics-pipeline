@@ -1,0 +1,9 @@
+{
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "email_user": "YOUR_EMAIL@gmail.com",
+    "email_password": "YOUR_16_CHAR_APP_PASSWORD",
+    "recipient_email": "YOUR_EMAIL@gmail.com",
+    "sender_name": "Clinical Genomics Pipeline",
+    "enable_notifications": true
+}
